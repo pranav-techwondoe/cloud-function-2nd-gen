@@ -3,7 +3,7 @@ locals {
 }
 
 resource "google_storage_bucket" "bucket" {
-  name     = "${local.project}-gcf-source"  # Every bucket name must be globally unique
+  name     = "${random_id.bucket_prefix.hex}-gcf-source"  # Every bucket name must be globally unique
   location = "US"
   uniform_bucket_level_access = true
 }
